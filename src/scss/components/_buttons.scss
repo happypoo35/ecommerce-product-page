@@ -1,0 +1,29 @@
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: 0.625rem;
+
+  &-amount {
+    background: none;
+  }
+
+  &-primary {
+    background: $Orange;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+}

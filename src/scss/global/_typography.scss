@@ -2,4 +2,24 @@
 
 body {
   font-family: "Kumbh Sans", sans-serif;
+  color: $Very-dark-blue;
+}
+
+h1 {
+  font-size: 2.75rem;
+  text-transform: capitalize;
+  line-height: 1.1;
+}
+
+h5 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $Orange;
+}
+
+p {
+  color: $Dark-grayish-blue;
+  letter-spacing: 0.004em;
+  line-height: 1.625em;
 }

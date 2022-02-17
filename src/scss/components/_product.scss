@@ -1,6 +1,62 @@
 .product {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0 3rem;
+  padding: 5.625rem 3rem 2rem;
   gap: 7.75rem;
+
+  &-content {
+    margin-top: 3.75rem;
+  }
+
+  &-desc {
+    margin-bottom: 1.75rem;
+
+    h5 {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-price {
+    font-weight: 700;
+    letter-spacing: 0.036em;
+    margin-bottom: 2.25rem;
+  }
+
+  .discount {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .badge {
+    background: $Pale-orange;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    color: $Orange;
+  }
+
+  .price {
+    color: $Grayish-blue;
+    text-decoration: line-through;
+  }
+
+  &-controls {
+    display: grid;
+    grid-template-columns: 9.75rem auto;
+    gap: 1rem;
+  }
+
+  .amount-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    background: $Light-grayish-blue;
+    border-radius: 0.625rem;
+  }
 }

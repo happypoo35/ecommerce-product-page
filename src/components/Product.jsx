@@ -1,8 +1,15 @@
+import { useState } from "react";
+import Gallery from "./Gallery";
+import { ReactComponent as IconPlus } from "images/icon-plus.svg";
+import { ReactComponent as IconMinus } from "images/icon-minus.svg";
+import { ReactComponent as IconCart } from "images/icon-cart.svg";
+
 import { selectProduct } from "features/shopSlice";
 import { useSelector } from "react-redux";
-import Gallery from "./Gallery";
 
 const Product = () => {
+  const [amount, setAmount] = useState(0);
+
   const product = useSelector(selectProduct);
 
   return (
@@ -16,10 +23,25 @@ const Product = () => {
         </div>
         <div className="product-price">
           <div className="discount">
-            <h2>{product.price}</h2>
-            <span className="badge">{product.discount}</span>
+            <h2>${(product.price * product.discount).toFixed(2)}</h2>
+            <span className="badge">{product.discount * 100}%</span>
           </div>
-          <span className="price">{product.price}</span>
+          <span className="price">${product.price.toFixed(2)}</span>
+        </div>
+        <div className="product-controls">
+          <div className="amount-container">
+            <button className="btn btn-amount">
+              <IconMinus />
+            </button>
+            <span className="amount">{amount}</span>
+            <button className="btn btn-amount">
+              <IconPlus />
+            </button>
+          </div>
+          <button className="btn btn-primary">
+            <IconCart />
+            Add to cart
+          </button>
         </div>
       </section>
     </main>
