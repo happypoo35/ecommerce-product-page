@@ -13,10 +13,11 @@ const Gallery = () => {
         <img src={images[slide].img} alt="Product image" />
       </picture>
       <div className="gallery-thumbs">
-        {images.map((el) => (
+        {images.map((el, id) => (
           <div
-            key={el.id}
-            className={el.id === slide + 1 ? "thumb active" : "thumb"}
+            key={id}
+            className={id === slide ? "thumb active" : "thumb"}
+            onClick={() => setSlide(id)}
           >
             <img src={el.thumb} alt="Image thumb" />
           </div>

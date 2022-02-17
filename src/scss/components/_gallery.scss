@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   // min-width: 445px;
+  min-width: 375px;
 
   img {
     width: 100%;
@@ -23,9 +24,15 @@
       border-radius: 0.625rem;
       overflow: hidden;
       background: white;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
 
       &.active {
         box-shadow: 0 0 0 0.125rem $Orange;
+        pointer-events: none;
 
         img {
           opacity: 0.2;
