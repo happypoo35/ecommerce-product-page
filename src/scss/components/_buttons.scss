@@ -25,5 +25,10 @@ button {
     display: flex;
     align-items: center;
     gap: 0.875rem;
+
+    &.shadow {
+      box-shadow: 0 1.5rem 2rem -1.25rem rgba($Orange, 0.5),
+        0 1.5rem 2rem -0.5rem $Pale-orange;
+    }
   }
 }

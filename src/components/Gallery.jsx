@@ -14,7 +14,12 @@ const Gallery = () => {
       </picture>
       <div className="gallery-thumbs">
         {images.map((el) => (
-          <img key={el.id} src={el.thumb} alt="Image thumb" className="thumb" />
+          <div
+            key={el.id}
+            className={el.id === slide + 1 ? "thumb active" : "thumb"}
+          >
+            <img src={el.thumb} alt="Image thumb" />
+          </div>
         ))}
       </div>
     </section>

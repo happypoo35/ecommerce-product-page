@@ -11,6 +11,7 @@ const Product = () => {
   const [amount, setAmount] = useState(0);
 
   const product = useSelector(selectProduct);
+  const price = product.price * product.discount;
 
   return (
     <main className="product">
@@ -23,22 +24,28 @@ const Product = () => {
         </div>
         <div className="product-price">
           <div className="discount">
-            <h2>${(product.price * product.discount).toFixed(2)}</h2>
+            <h2>${price.toFixed(2)}</h2>
             <span className="badge">{product.discount * 100}%</span>
           </div>
           <span className="price">${product.price.toFixed(2)}</span>
         </div>
         <div className="product-controls">
           <div className="amount-container">
-            <button className="btn btn-amount">
+            <button
+              className="btn btn-amount"
+              onClick={() => amount > 0 && setAmount((p) => p - 1)}
+            >
               <IconMinus />
             </button>
             <span className="amount">{amount}</span>
-            <button className="btn btn-amount">
+            <button
+              className="btn btn-amount"
+              onClick={() => setAmount((p) => p + 1)}
+            >
               <IconPlus />
             </button>
           </div>
-          <button className="btn btn-primary">
+          <button className="btn btn-primary shadow">
             <IconCart />
             Add to cart
           </button>

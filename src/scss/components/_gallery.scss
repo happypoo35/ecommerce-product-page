@@ -19,8 +19,18 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 
-    img {
+    .thumb {
       border-radius: 0.625rem;
+      overflow: hidden;
+      background: white;
+
+      &.active {
+        box-shadow: 0 0 0 0.125rem $Orange;
+
+        img {
+          opacity: 0.2;
+        }
+      }
     }
   }
 }
