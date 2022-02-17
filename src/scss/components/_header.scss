@@ -1,0 +1,32 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  padding-bottom: 2.125rem;
+  border-bottom: 1px solid rgba($Very-vark-blue, 0.15);
+
+  .logo {
+    margin-right: 3rem;
+  }
+
+  nav {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: $Dark-grayish-blue;
+  }
+
+  .icon-cart {
+    margin-right: 2.875rem;
+    color: $Dark-grayish-blue;
+  }
+
+  .avatar {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+}
