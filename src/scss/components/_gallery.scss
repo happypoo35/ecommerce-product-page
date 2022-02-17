@@ -1,0 +1,26 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  // min-width: 445px;
+
+  img {
+    width: 100%;
+  }
+
+  &-img {
+    img {
+      border-radius: 1rem;
+    }
+  }
+
+  &-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    img {
+      border-radius: 0.625rem;
+    }
+  }
+}

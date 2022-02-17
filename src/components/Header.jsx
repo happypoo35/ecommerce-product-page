@@ -8,12 +8,17 @@ const Header = () => {
       <Logo className="logo" />
       <nav>
         {["Collections", "Men", "Women", "About", "Contact"].map((el, id) => (
-          <a key={id} href="" className="nav-link">
+          <a
+            key={id}
+            href=""
+            className="nav-link"
+            onClick={(e) => e.preventDefault()}
+          >
             {el}
           </a>
         ))}
       </nav>
-      <CartIcon className="icon-cart"/>
+      <CartIcon className="icon-cart" />
       <picture className="avatar">
         <img src={avatar} alt="avatar" className="avatar" />
       </picture>

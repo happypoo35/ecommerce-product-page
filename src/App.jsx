@@ -1,12 +1,13 @@
 import "scss/style.scss";
 import Header from "components/Header";
 import Layout from "components/Layout";
+import Product from "components/Product";
 
 function App() {
   return (
     <Layout>
       <Header />
-      <h1>hello world</h1>
+      <Product />
     </Layout>
   );
 }
