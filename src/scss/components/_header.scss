@@ -43,13 +43,18 @@
     }
   }
 
-  .icon-cart {
-    margin-right: 2.875rem;
-    color: $Dark-grayish-blue;
+  .btn-cart {
+    margin-right: 2.25rem;
   }
 
   .avatar {
+    cursor: pointer;
+    border-radius: 50%;
     width: 3.125rem;
     height: 3.125rem;
+
+    &:hover {
+      box-shadow: 0 0 0 0.125rem $Orange;
+    }
   }
 }

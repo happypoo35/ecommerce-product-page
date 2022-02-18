@@ -18,7 +18,9 @@ const Header = () => {
           </a>
         ))}
       </nav>
-      <CartIcon className="icon-cart" />
+      <button className="btn-cart">
+        <CartIcon className="icon-cart" />
+      </button>
       <picture className="avatar">
         <img src={avatar} alt="avatar" className="avatar" />
       </picture>
