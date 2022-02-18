@@ -48,4 +48,17 @@ button {
   padding: 0.5rem 0.625rem;
   color: $Dark-grayish-blue;
   background: none;
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.btn-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 3.625rem;
+  height: 3.625rem;
 }

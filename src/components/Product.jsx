@@ -6,16 +6,18 @@ import { ReactComponent as IconCart } from "images/icon-cart.svg";
 
 import { selectProduct } from "features/shopSlice";
 import { useSelector } from "react-redux";
+import Lightbox from "./Lightbox";
 
 const Product = () => {
   const [amount, setAmount] = useState(0);
+  const [lightbox, setLightbox] = useState(null);
 
   const product = useSelector(selectProduct);
   const price = product.price * product.discount;
 
   return (
     <main className="product">
-      <Gallery />
+      <Gallery currentSlide={0} isProduct setLightbox={setLightbox} />
       <section className="product-content" aria-label="Product content">
         <div className="product-desc">
           <h5>{product.brand}</h5>
@@ -51,6 +53,9 @@ const Product = () => {
           </button>
         </div>
       </section>
+      {lightbox !== null && (
+        <Lightbox lightbox={lightbox} setLightbox={setLightbox} />
+      )}
     </main>
   );
 };

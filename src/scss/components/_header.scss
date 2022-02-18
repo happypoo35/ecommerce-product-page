@@ -53,6 +53,7 @@
     border-radius: 50%;
     width: 3.125rem;
     height: 3.125rem;
+    transition: 0.15s;
 
     &:hover {
       box-shadow: 0 0 0 0.125rem $Orange;

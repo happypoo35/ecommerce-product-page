@@ -28,7 +28,7 @@ const Header = () => {
       <picture className="avatar">
         <img src={avatar} alt="avatar" className="avatar" />
       </picture>
-      <Cart showCart={showCart} />
+      <Cart showCart={showCart} setShowCart={setShowCart} />
     </header>
   );
 };

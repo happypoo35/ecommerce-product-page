@@ -10,8 +10,31 @@
   }
 
   &-img {
+    position: relative;
+
     img {
       border-radius: 1rem;
+    }
+
+    &-product {
+      img {
+        cursor: pointer;
+      }
+    }
+
+    .btn-slide {
+      position: absolute;
+      top: 50%;
+
+      &-prev {
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      &-next {
+        right: 0;
+        transform: translate(50%, -50%);
+      }
     }
   }
 
@@ -27,7 +50,9 @@
       cursor: pointer;
 
       &:hover {
-        opacity: 0.5;
+        img {
+          opacity: 0.5;
+        }
       }
 
       &.active {
