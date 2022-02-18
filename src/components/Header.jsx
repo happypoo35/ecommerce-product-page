@@ -1,8 +1,12 @@
 import { ReactComponent as Logo } from "images/logo.svg";
 import { ReactComponent as CartIcon } from "images/icon-cart.svg";
 import avatar from "images/image-avatar.png";
+import Cart from "./Cart";
+import { useState } from "react";
 
 const Header = () => {
+  const [showCart, setShowCart] = useState(false);
+
   return (
     <header className="main-header">
       <Logo className="logo" />
@@ -18,12 +22,13 @@ const Header = () => {
           </a>
         ))}
       </nav>
-      <button className="btn-cart">
+      <button className="btn-cart" onClick={() => setShowCart((p) => (p = !p))}>
         <CartIcon className="icon-cart" />
       </button>
       <picture className="avatar">
         <img src={avatar} alt="avatar" className="avatar" />
       </picture>
+      <Cart showCart={showCart} />
     </header>
   );
 };
