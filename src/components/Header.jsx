@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ReactComponent as Logo } from "images/logo.svg";
-import { ReactComponent as CartIcon } from "images/icon-cart.svg";
+import { ReactComponent as IconCart } from "images/icon-cart.svg";
+import { ReactComponent as IconMenu } from "images/icon-menu.svg";
 import avatar from "images/image-avatar.png";
 import Cart from "./Cart";
 
@@ -14,6 +15,7 @@ const Header = () => {
 
   return (
     <header className="main-header">
+      {/* <IconMenu className="icon-menu" /> */}
       <Logo className="logo" />
       <nav>
         {["Collections", "Men", "Women", "About", "Contact"].map((el, id) => (
@@ -29,7 +31,7 @@ const Header = () => {
       </nav>
       <button className="btn-cart" onClick={() => setShowCart((p) => (p = !p))}>
         {cart && <div className="cart-badge">{cart.amount}</div>}
-        <CartIcon className="icon-cart" />
+        <IconCart className="icon-cart" />
       </button>
       <picture className="avatar">
         <img src={avatar} alt="avatar" className="avatar" />
