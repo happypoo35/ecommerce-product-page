@@ -46,6 +46,13 @@
 
   .btn-cart {
     margin-right: 2.25rem;
+    padding: 0.5rem 0.625rem;
+    color: $Dark-grayish-blue;
+    background: none;
+
+    svg {
+      pointer-events: none;
+    }
   }
 
   .avatar {

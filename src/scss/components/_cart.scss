@@ -22,6 +22,8 @@
   }
 
   &-content {
+    padding: 1.5rem 1.5rem 2rem;
+
     &-empty {
       min-height: 11.75rem;
       display: flex;
@@ -33,5 +35,38 @@
         color: $Dark-grayish-blue;
       }
     }
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.625rem;
+
+    img {
+      max-width: 50px;
+      border-radius: 0.25rem;
+    }
+
+    p:first-child {
+      text-transform: capitalize;
+    }
+
+    b {
+      color: $Very-dark-blue;
+    }
+  }
+}
+
+.btn-delete {
+  background: none;
+  color: $Grayish-blue;
+
+  &:hover {
+    color: $Orange;
   }
 }

@@ -31,15 +31,29 @@ const initialState = {
       },
     ],
   },
-  cart: [],
+  cart: null,
 };
 
 export const shopSlice = createSlice({
   name: "shop",
   initialState,
-  reducers: {},
+  reducers: {
+    add: (state, { payload }) => {
+      if (!state.cart) {
+        state.cart = payload;
+      } else {
+        state.cart.amount = state.cart.amount + payload.amount;
+      }
+    },
+    clear: (state) => {
+      state.cart = null;
+    },
+  },
 });
 
 export const selectProduct = (state) => state.shop.product;
+export const selectCart = (state) => state.shop.cart;
+
+export const { add, clear } = shopSlice.actions;
 
 export default shopSlice.reducer;

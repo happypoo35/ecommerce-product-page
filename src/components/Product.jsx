@@ -1,19 +1,34 @@
 import { useState } from "react";
 import Gallery from "./Gallery";
+import Lightbox from "./Lightbox";
 import { ReactComponent as IconPlus } from "images/icon-plus.svg";
 import { ReactComponent as IconMinus } from "images/icon-minus.svg";
 import { ReactComponent as IconCart } from "images/icon-cart.svg";
 
-import { selectProduct } from "features/shopSlice";
-import { useSelector } from "react-redux";
-import Lightbox from "./Lightbox";
+import { add, selectProduct } from "features/shopSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Product = () => {
   const [amount, setAmount] = useState(0);
   const [lightbox, setLightbox] = useState(null);
 
   const product = useSelector(selectProduct);
+  const dispatch = useDispatch();
   const price = product.price * product.discount;
+
+  const addToCart = () => {
+    if (!amount) return;
+    dispatch(
+      add({
+        id: product.id,
+        name: product.name,
+        img: product.images[0].thumb,
+        price,
+        amount,
+      })
+    );
+    setAmount(0);
+  };
 
   return (
     <main className="product">
@@ -47,7 +62,7 @@ const Product = () => {
               <IconPlus />
             </button>
           </div>
-          <button className="btn btn-primary shadow">
+          <button className="btn btn-primary shadow" onClick={addToCart}>
             <IconCart />
             Add to cart
           </button>
