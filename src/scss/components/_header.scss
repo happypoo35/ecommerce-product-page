@@ -1,7 +1,6 @@
 .main-header {
-  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 1.75rem;
   padding-bottom: 2.125rem;
@@ -9,37 +8,97 @@
 
   .logo {
     margin-right: 3rem;
+
+    @include tablet {
+      flex: 1;
+      margin-left: 2rem;
+    }
   }
 
-  nav {
+  .menu {
     flex: 1;
+
+    @include tablet {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background: rgba(black, 0.75);
+
+      &-show {
+        display: initial;
+      }
+    }
+
+    &-close {
+      display: none;
+      color: $Dark-grayish-blue;
+      margin-bottom: 1.125rem;
+      cursor: pointer;
+
+      @include tablet {
+        display: initial;
+      }
+    }
+  }
+
+  .nav {
     display: flex;
     gap: 2rem;
+
+    @include tablet {
+      padding: 2.75rem 2rem 2rem;
+      background: white;
+      height: 100%;
+      width: 20rem;
+      flex-direction: column;
+    }
+
+    @include mobile {
+      gap: 1.375rem;
+      padding: 1.5rem;
+      width: 250px;
+    }
   }
 
   .nav-link {
     color: $Dark-grayish-blue;
     letter-spacing: -0.016em;
     position: relative;
-    transition: 0.2s;
+    transition: color 0.2s;
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -3.125rem;
-      display: block;
-      width: 100%;
-      height: 0.25rem;
-      background: $Orange;
-      transform: scaleX(0);
-      transition: 0.2s;
+    @include tablet {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $Very-dark-blue;
     }
 
-    &:hover {
-      color: $Very-dark-blue;
+    @include mobile {
+      font-size: 1.125rem;
+    }
 
+    @include desktop {
       &::after {
-        transform: scaleX(100%);
+        content: "";
+        position: absolute;
+        bottom: -3.125rem;
+        display: block;
+        width: 100%;
+        height: 0.25rem;
+        background: $Orange;
+        transform: scaleX(0);
+        transition: 0.2s;
+      }
+
+      &:hover {
+        color: $Very-dark-blue;
+
+        &::after {
+          transform: scaleX(100%);
+        }
       }
     }
   }
@@ -81,6 +140,20 @@
 
     &:hover {
       box-shadow: 0 0 0 0.125rem $Orange;
+    }
+  }
+
+  .icon-menu {
+    cursor: pointer;
+    display: none;
+    color: $Dark-grayish-blue;
+
+    &:hover {
+      color: $Orange;
+    }
+
+    @include tablet {
+      display: initial;
     }
   }
 }

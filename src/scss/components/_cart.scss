@@ -1,7 +1,7 @@
 .cart {
   position: absolute;
+  z-index: 1;
   top: 6rem;
-  right: 0;
   width: min(360px, 100%);
   background: white;
   border-radius: 0.625rem;

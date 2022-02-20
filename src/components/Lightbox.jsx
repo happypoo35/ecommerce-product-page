@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import Gallery from "./Gallery";
 import { ReactComponent as IconClose } from "images/icon-close.svg";
+import Gallery from "./Gallery";
 
 const Lightbox = ({ lightbox, setLightbox }) => {
   const lightboxRef = useRef(null);
