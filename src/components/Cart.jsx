@@ -20,9 +20,9 @@ const Cart = ({ showCart, setShowCart }) => {
 
   return (
     <div className={showCart ? "cart active" : "cart"} ref={cartRef}>
-      <header className="cart-header">
+      <div className="cart-header">
         <h4>Cart</h4>
-      </header>
+      </div>
       <div
         className={cart ? "cart-content" : "cart-content cart-content-empty"}
       >

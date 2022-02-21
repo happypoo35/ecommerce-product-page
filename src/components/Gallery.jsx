@@ -20,7 +20,7 @@ const Gallery = ({ currentSlide, isProduct, setLightbox }) => {
 
   return (
     <section className="gallery" aria-label="Product gallery">
-      <picture
+      <div
         className={
           isProduct ? "gallery-img gallery-img-product" : "gallery-img"
         }
@@ -36,7 +36,7 @@ const Gallery = ({ currentSlide, isProduct, setLightbox }) => {
         <button className="btn-slide btn-slide-next" onClick={nextSlide}>
           <IconNext />
         </button>
-      </picture>
+      </div>
       <div className="gallery-thumbs">
         {images.map((el, id) => (
           <div

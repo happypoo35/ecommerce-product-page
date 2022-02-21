@@ -47,7 +47,7 @@ const Header = () => {
           ))}
         </nav>
       </div>
-      <button className="btn-cart" onClick={() => setShowCart((p) => (p = !p))}>
+      <button className="btn-cart" aria-label="cart" onClick={() => setShowCart((p) => (p = !p))}>
         {cart && <div className="cart-badge">{cart.amount}</div>}
         <IconCart className="icon-cart" />
       </button>

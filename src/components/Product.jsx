@@ -60,6 +60,7 @@ const Product = () => {
           <div className="amount-container">
             <button
               className="btn btn-amount"
+              aria-label="decrease amount"
               onClick={() => amount > 0 && setAmount((p) => p - 1)}
             >
               <IconMinus />
@@ -67,6 +68,7 @@ const Product = () => {
             <span className="amount">{amount}</span>
             <button
               className="btn btn-amount"
+              aria-label="increase amount"
               onClick={() => setAmount((p) => p + 1)}
             >
               <IconPlus />
