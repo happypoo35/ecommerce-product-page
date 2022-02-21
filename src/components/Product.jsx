@@ -27,6 +27,10 @@ const Product = () => {
         amount,
       })
     );
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
     setAmount(0);
   };
 

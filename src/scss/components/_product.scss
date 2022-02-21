@@ -13,13 +13,25 @@
     gap: 0;
   }
 
+  @include mobile {
+    padding: 0 0 3rem;
+  }
+
   .gallery,
   &-content {
     max-width: 445px;
+
+    @include mobile {
+      max-width: unset;
+    }
   }
 
   &-content {
     margin-top: 3.75rem;
+
+    @include mobile {
+      margin-top: 1.375rem;
+    }
   }
 
   &-desc {
@@ -27,10 +39,18 @@
 
     h5 {
       margin-bottom: 1rem;
+
+      @include mobile {
+        margin-bottom: 0.75rem;
+      }
     }
 
     h1 {
       margin-bottom: 2rem;
+
+      @include mobile {
+        margin-bottom: 1.125rem;
+      }
     }
   }
 
@@ -38,6 +58,13 @@
     font-weight: 700;
     letter-spacing: 0.036em;
     margin-bottom: 2.25rem;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .discount {
@@ -45,6 +72,10 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
+
+    @include mobile {
+      margin-bottom: 0;
+    }
   }
 
   .badge {
@@ -63,6 +94,10 @@
     display: flex;
     gap: 1rem;
 
+    @include mobile {
+      flex-direction: column;
+    }
+
     .btn-primary {
       width: 100%;
     }
@@ -77,5 +112,9 @@
     border-radius: 0.625rem;
     max-width: 156px;
     width: 100%;
+
+    @include mobile {
+      max-width: unset;
+    }
   }
 }

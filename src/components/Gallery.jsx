@@ -30,16 +30,12 @@ const Gallery = ({ currentSlide, isProduct, setLightbox }) => {
           alt="Product"
           onClick={() => isProduct && setLightbox(slide)}
         />
-        {!isProduct && (
-          <>
-            <button className="btn-slide btn-slide-prev" onClick={prevSlide}>
-              <IconPrev />
-            </button>
-            <button className="btn-slide btn-slide-next" onClick={nextSlide}>
-              <IconNext />
-            </button>
-          </>
-        )}
+        <button className="btn-slide btn-slide-prev" onClick={prevSlide}>
+          <IconPrev />
+        </button>
+        <button className="btn-slide btn-slide-next" onClick={nextSlide}>
+          <IconNext />
+        </button>
       </picture>
       <div className="gallery-thumbs">
         {images.map((el, id) => (
