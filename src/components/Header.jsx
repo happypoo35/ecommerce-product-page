@@ -38,7 +38,7 @@ const Header = () => {
           {["Collections", "Men", "Women", "About", "Contact"].map((el, id) => (
             <a
               key={id}
-              href=""
+              href="/"
               className="nav-link"
               onClick={(e) => e.preventDefault()}
             >
