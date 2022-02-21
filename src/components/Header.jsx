@@ -5,6 +5,8 @@ import { ReactComponent as IconMenu } from "images/icon-menu.svg";
 import { ReactComponent as IconClose } from "images/icon-close.svg";
 import avatar from "images/image-avatar.png";
 import Cart from "./Cart";
+import useOutsideClick from "hooks/useOutsideClick";
+import useWindowSize from "hooks/useWindowSize";
 
 import { useSelector } from "react-redux";
 import { selectCart } from "features/shopSlice";
@@ -13,20 +15,15 @@ const Header = () => {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const navRef = useRef(null);
+  const { tablet } = useWindowSize();
 
   const cart = useSelector(selectCart);
 
+  useOutsideClick(navRef, setShowMenu);
+
   useEffect(() => {
-    const closeMenu = (e) => {
-      if (!navRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
-    };
-    document.addEventListener("mousedown", closeMenu);
-    return () => {
-      document.removeEventListener("mousedown", closeMenu);
-    };
-  });
+    !tablet && setShowMenu(false);
+  }, [tablet]);
 
   return (
     <header className="main-header">

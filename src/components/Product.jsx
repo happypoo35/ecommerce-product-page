@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Gallery from "./Gallery";
 import Lightbox from "./Lightbox";
 import { ReactComponent as IconPlus } from "images/icon-plus.svg";
@@ -7,10 +7,12 @@ import { ReactComponent as IconCart } from "images/icon-cart.svg";
 
 import { add, selectProduct } from "features/shopSlice";
 import { useSelector, useDispatch } from "react-redux";
+import useWindowSize from "hooks/useWindowSize";
 
 const Product = () => {
   const [amount, setAmount] = useState(0);
-  const [lightbox, setLightbox] = useState(null);
+  const [lightbox, setLightbox] = useState(false);
+  const { mobile } = useWindowSize();
 
   const product = useSelector(selectProduct);
   const dispatch = useDispatch();
@@ -33,6 +35,10 @@ const Product = () => {
     });
     setAmount(0);
   };
+
+  useEffect(() => {
+    mobile && setLightbox(false);
+  }, [mobile]);
 
   return (
     <main className="product">
@@ -72,7 +78,7 @@ const Product = () => {
           </button>
         </div>
       </section>
-      {lightbox !== null && (
+      {lightbox !== false && (
         <Lightbox lightbox={lightbox} setLightbox={setLightbox} />
       )}
     </main>

@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { ReactComponent as IconDelete } from "images/icon-delete.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import { clear, selectCart } from "features/shopSlice";
+import useOutsideClick from "hooks/useOutsideClick";
 
 const Cart = ({ showCart, setShowCart }) => {
   const cartRef = useRef(null);
@@ -10,18 +11,12 @@ const Cart = ({ showCart, setShowCart }) => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const closeCart = (e) => {
-      if (e.target.classList[0] === "btn-cart") return;
-      if (!cartRef.current.contains(e.target)) {
-        setShowCart(false);
-      }
-    };
-    document.addEventListener("mousedown", closeCart);
-    return () => {
-      document.removeEventListener("mousedown", closeCart);
-    };
-  });
+  const clearCart = () => {
+    dispatch(clear());
+    setShowCart(false);
+  };
+
+  useOutsideClick(cartRef, setShowCart, "btn-cart");
 
   return (
     <div className={showCart ? "cart active" : "cart"} ref={cartRef}>
@@ -42,11 +37,13 @@ const Cart = ({ showCart, setShowCart }) => {
                   <b>${(cart.price * cart.amount).toFixed(2)}</b>
                 </p>
               </div>
-              <button className="btn-delete" onClick={() => dispatch(clear())}>
+              <button className="btn-delete" onClick={clearCart}>
                 <IconDelete />
               </button>
             </div>
-            <button className="btn btn-primary">Checkout</button>
+            <button className="btn btn-primary" onClick={clearCart}>
+              Checkout
+            </button>
           </>
         ) : (
           <span>Your cart is empty.</span>
